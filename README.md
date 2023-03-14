@@ -34,7 +34,7 @@ GIF created with ...  (https://getkap.co/) for macOS
 
 ## Notes
 
-Having difficulty loading images into a collection view for the project.
+Fixed collection view page.
 
 ## License
 
