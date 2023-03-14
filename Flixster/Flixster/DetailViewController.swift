@@ -25,7 +25,11 @@ class DetailViewController: UIViewController {
         
         movieTitleLabel.text = movie.original_title
         descriptionLabel.text = movie.overview
+        voteAvgLabel.text = String(movie.vote_average) + " Vote Average"
+        voteCountLabel.text = String(movie.vote_count) + " Votes"
+        popularity.text = String(movie.popularity) + " Popularity"
         
+    
         Nuke.loadImage(with:URL(string:"https://image.tmdb.org/t/p/w500" + movie.backdrop_path.absoluteString)!, into: backdropImageView)
         
     }
