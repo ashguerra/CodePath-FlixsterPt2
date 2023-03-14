@@ -27,7 +27,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![](https://i.imgur.com/LXLrSVZ.gif)
+![](https://i.imgur.com/aFUpmjy.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  (https://getkap.co/) for macOS
