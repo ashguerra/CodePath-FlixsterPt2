@@ -9,11 +9,32 @@ import UIKit
 import Nuke
 
 class PostersViewController: UIViewController, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // the number of items shown should be the number of albums we have.
+        posters.count
+    }
 
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        // Get a collection view cell (based in the identifier you set in storyboard) and cast it to our custom AlbumCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as! PosterCell
+
+        // Use the indexPath.item to index into the albums array to get the corresponding album
+        let poster = posters[indexPath.item]
+
+        // Get the artwork image url
+        let imageUrl = poster.poster_path
+
+        // Set the image on the image view of the cell
+        //Nuke.loadImage(with: imageUrl, into: cell.posterImageView)
+        Nuke.loadImage(with:URL(string:"https://image.tmdb.org/t/p/w500" + imageUrl.absoluteString)!, into: cell.posterImageView)
+        
+        return cell
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var posters: [Poster] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,32 +77,20 @@ class PostersViewController: UIViewController, UICollectionViewDataSource {
                 print(error.localizedDescription)
             }
         }
-        
         // Initiate the network request
         task.resume()
+        
+        
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        // The minimum spacing between adjacent cells (left / right, in vertical scrolling collection)
+        // Set this to taste.
+        layout.minimumInteritemSpacing = 1
+        // The minimum spacing between adjacent cells (top / bottom, in vertical scrolling collection)
+        // Set this to taste.
+        layout.minimumLineSpacing = 4
+
+        layout.itemSize = CGSize(width: 130, height: 187)
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // the number of items shown should be the number of albums we have.
-        posters.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        // Get a collection view cell (based in the identifier you set in storyboard) and cast it to our custom AlbumCell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as! PosterCell
-
-        // Use the indexPath.item to index into the albums array to get the corresponding album
-        let poster = posters[indexPath.item]
-
-        // Get the artwork image url
-        let imageUrl = poster.posterImage
-
-        // Set the image on the image view of the cell
-        Nuke.loadImage(with:URL(string:"https://image.tmdb.org/t/p/w500" + imageUrl.absoluteString)!, into: cell.posterImageView)
-
-        return cell
-    }
-    
-
 }

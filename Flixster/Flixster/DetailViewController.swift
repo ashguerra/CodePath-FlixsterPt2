@@ -10,7 +10,6 @@ import Nuke
 
 class DetailViewController: UIViewController {
     
-    
     @IBOutlet weak var popularity: UILabel!
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -29,7 +28,6 @@ class DetailViewController: UIViewController {
         voteCountLabel.text = String(movie.vote_count) + " Votes"
         popularity.text = String(movie.popularity) + " Popularity"
         
-    
         Nuke.loadImage(with:URL(string:"https://image.tmdb.org/t/p/w500" + movie.backdrop_path.absoluteString)!, into: backdropImageView)
         
     }

@@ -11,7 +11,7 @@ Time spent: 8 hours spent in total
 The following **required** functionality is completed:
 
 - [x] Implement network call and table view to display a list of movies currently playing (title, description, image)
-- [ ] App has a collection view with the same list of movies
+- [x] App has a collection view with the same list of movies
 - [x] Uses a tab bar controller to switch between collection view and table view screens
  
 The following **optional** features are implemented:
@@ -27,7 +27,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![](https://i.imgur.com/Pq2SHiB.gif)
+![](https://i.imgur.com/LXLrSVZ.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  (https://getkap.co/) for macOS

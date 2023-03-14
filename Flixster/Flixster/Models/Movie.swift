@@ -26,10 +26,6 @@ struct MoviesResponse: Decodable {
 
 // TODO: Pt 1 - Create an extension with a mock tracks static var
 extension Movie {
-
-    //An array of mock movies
-    // We can now access this array of mock tracks anywhere like this:
-    // let tracks = Tracks.mockTracks
     
     /*
     
